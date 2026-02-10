@@ -9,7 +9,16 @@ namespace CourierSystemWPF.ViewModels
 {
     public class HomeVM : ViewModelBase
     {
-        public HomeVM(NavigationVM navigation) { 
+        private object _currentHomeView = null!;
+
+        public object CurrentHomeView
+        {
+            get { return _currentHomeView; }
+            set { _currentHomeView = value; OnPropertyChanged(); }
+        }
+
+        public HomeVM() {
+            CurrentHomeView = new ViewDeliveriesVM();
         }
     }
 }

@@ -8,22 +8,8 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800">
 
+
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="25*"/>
-            <ColumnDefinition Width="25*"/>
-            <ColumnDefinition Width="25*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="201*"/>
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="8*"/>
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="90*"/>
-            <RowDefinition Height="100*"/>
-        </Grid.RowDefinitions>
-
-        <Label Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">Home page supposedly</Label>
-
+        <Label HorizontalAlignment="Center" VerticalAlignment="Center"> THIS IS HOMEPAGE! </Label>
     </Grid>
 </UserControl>

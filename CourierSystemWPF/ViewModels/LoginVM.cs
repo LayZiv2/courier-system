@@ -12,7 +12,6 @@ namespace CourierSystemWPF.ViewModels
     public class LoginVM : ViewModelBase
     {
         private Login _login;
-        private readonly NavigationVM _navigation;
         private string _statusText = "...";
 
         private string? _username;
@@ -25,10 +24,9 @@ namespace CourierSystemWPF.ViewModels
         public string? PasswordInput { get { return _password; } set { _password = value; OnPropertyChanged(); } }
         public string? UsernameInput { get { return _username; } set { _username = value; OnPropertyChanged(); } }
 
-        public LoginVM(NavigationVM navigation)    
+        public LoginVM()    
         {
             _login = new Login();
-            _navigation = navigation;
 
             // Command Functions //
             LoginCommand = new RelayCommand(obj =>
@@ -46,7 +44,11 @@ namespace CourierSystemWPF.ViewModels
                 if (result)
                 {
                     StatusText = "Logged in";
-                    navigation.CurrentView = new HomeVM(_navigation);
+                    Session.Login = _login;
+                    if (Session.Navigation != null)
+                    {
+                        Session.Navigation.CurrentView = new HomeVM();
+                    }
                 } else
                 {
                     StatusText = "Failed!";

@@ -13,6 +13,9 @@
         <DataTemplate DataType="{x:Type vm:HomeVM}">
             <views:Home />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:ViewDeliveriesVM}">
+            <views:ViewDeliveries />
+        </DataTemplate>
     </Application.Resources>
 
 </Application>

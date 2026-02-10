@@ -7,13 +7,30 @@
         xmlns:vm="clr-namespace:CourierSystemWPF.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="800">
-    
+
     <Window.DataContext>
         <vm:NavigationVM />
     </Window.DataContext>
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150*"/>
+            <ColumnDefinition Width="600*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Main Menu -->
         <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="63*"/>
+                <RowDefinition Height="421*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="1" Margin="10,10,10,10">
+                <Button Command="{Binding LoginButtonCmd}" IsEnabled="True">Login</Button>
+                <Button Command="{Binding LoginButtonCmd}" IsEnabled="False">View Deliveries</Button>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Column="1" Background="AliceBlue">
             <ContentControl x:Name="MainView" Content="{Binding CurrentView}" Loaded="MainView_Loaded"/>
         </Grid>
     </Grid>

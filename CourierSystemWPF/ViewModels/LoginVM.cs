@@ -40,7 +40,7 @@ namespace CourierSystemWPF.ViewModels
                 _login.username = _username;
                 _login.password = _password;
 
-                bool result = _login.ValidateCredentials();
+                bool result = DBUtility.ValidateCredentials(_username, _password);
                 if (result)
                 {
                     StatusText = "Logged in";

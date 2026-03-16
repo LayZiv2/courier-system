@@ -6,6 +6,7 @@ using Microsoft.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CourierSystemWPF.Models;
 
 namespace CourierSystemWPF.Utilities
 {
@@ -18,7 +19,7 @@ namespace CourierSystemWPF.Utilities
             return conn;
         }
 
-        public static bool ValidateCredentials(string username, string password)
+        public static bool ValidateCredentials(string username, string password, Login login)
         {
             SqlConnection conn = CreateConnection();
             conn.Open();
@@ -32,6 +33,8 @@ namespace CourierSystemWPF.Utilities
             SqlDataReader rdr = cmd.ExecuteReader();
             if (rdr.Read()) // If found entry
             {
+                login.accessLevel = (int) rdr[3]; // 3rd index meaning access level
+                login.employeeId = (int) rdr[4];  // 4th index meaning employee id
                 conn.Close();
                 return true;
             }

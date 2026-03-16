@@ -7,17 +7,28 @@
              StartupUri="MainWindow.xaml">
 
     <Application.Resources>
-        <DataTemplate DataType="{x:Type vm:LoginVM}">
-            <views:Login />
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type vm:HomeVM}">
-            <views:Home />
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type vm:ViewDeliveriesVM}">
-            <views:ViewDeliveries />
-        </DataTemplate>
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type vm:LoginVM}">
+                <views:Login />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:HomeVM}">
+                <views:Home />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:CredentialsVM}">
+                <views:Credentials />
+            </DataTemplate>
+
+        </ResourceDictionary>
     </Application.Resources>
 
 </Application>
 
+    
 

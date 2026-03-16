@@ -24,6 +24,7 @@ namespace CourierSystemWPF.ViewModels
         public string? PasswordInput { get { return _password; } set { _password = value; OnPropertyChanged(); } }
         public string? UsernameInput { get { return _username; } set { _username = value; OnPropertyChanged(); } }
 
+
         public LoginVM()    
         {
             _login = new Login();
@@ -40,7 +41,7 @@ namespace CourierSystemWPF.ViewModels
                 _login.username = _username;
                 _login.password = _password;
 
-                bool result = DBUtility.ValidateCredentials(_username, _password);
+                bool result = DBUtility.ValidateCredentials(_username, _password, _login);
                 if (result)
                 {
                     StatusText = "Logged in";

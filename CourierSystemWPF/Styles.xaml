@@ -1,0 +1,42 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="NavigationSidebarStyle" TargetType="Grid">
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect Color="#FF444444" Opacity="0.5" ShadowDepth="1"/>
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="#FFAAEDFF"/>
+                    <GradientStop Color="#FF3140B7" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="SidebarButtonStyle" TargetType="Button">
+
+        <Setter Property="FontFamily" Value="Segoe UI"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Background" Value="#FF90C0EA"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Height" Value="36"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="Padding" Value="16,0,0,0"/>
+        <Setter Property="Margin" Value="5,5,5,5"/>
+        <Setter Property="Cursor" Value="Hand"/>
+
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect Color="#FF444444" Opacity="0.5" ShadowDepth="1"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

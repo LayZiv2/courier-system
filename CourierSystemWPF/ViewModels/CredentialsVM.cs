@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace CourierSystemWPF.ViewModels
 {
-    public class ViewDeliveriesVM : ViewModelBase
+    public class CredentialsVM : ViewModelBase
     {
-        public ViewDeliveriesVM()
-        {
+        public CredentialsVM() {
 
         }
     }

@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace CourierSystemWPF.Views
 {
     /// <summary>
-    /// Interaction logic for ViewDeliveries.xaml
+    /// Interaction logic for Credentials.xaml
     /// </summary>
-    public partial class ViewDeliveries : UserControl
+    public partial class Credentials : UserControl
     {
-        public ViewDeliveries()
+        public Credentials()
         {
             InitializeComponent();
         }

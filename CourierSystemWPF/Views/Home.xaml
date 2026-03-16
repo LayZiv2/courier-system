@@ -8,8 +8,76 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800">
 
-
     <Grid>
-        <Label HorizontalAlignment="Center" VerticalAlignment="Center"> THIS IS HOMEPAGE! </Label>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200*"/>
+            <ColumnDefinition Width="625*"/>
+        </Grid.ColumnDefinitions>
+        <!-- Navigation Sidebar -->
+        <Grid Style="{StaticResource NavigationSidebarStyle}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="300*"/>
+            </Grid.RowDefinitions>
+
+            <!-- User box -->
+            <Grid Margin="8"  >
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40*"/>
+                    <ColumnDefinition Width="100*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border CornerRadius="8" BorderBrush="DarkGray" BorderThickness="3" Background="#FF9DD1FF" Grid.ColumnSpan="2" Grid.RowSpan="2">
+                    <Border.Effect>
+                        <DropShadowEffect Opacity="0.5"/>
+                    </Border.Effect>
+                </Border>
+
+                <Label Content="{Binding DisplayUsername}" Grid.Column="1" Grid.Row="1"  Foreground="#2B3A55" FontFamily="Segoe UI" FontSize="17" VerticalAlignment="Center" FontWeight="SemiBold"/>
+                <Image Source="/Resources/Images/user-icon.png" Margin="8" Grid.RowSpan="2"/>
+            </Grid>
+
+            <!-- Button List -->
+            <StackPanel Grid.Row="1">
+                <Button Style="{StaticResource SidebarButtonStyle}" Visibility="{Binding ShowDeliveries}">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/Images/box-icon.png" Width="30" Margin="0,0,10,0"/>
+                        <TextBlock Text="Deliveries"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource SidebarButtonStyle}" Visibility="{Binding ShowContracts}">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/Images/clipboard-icon.png" Width="30" Margin="0,0,10,0"/>
+                        <TextBlock Text="Contracts"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource SidebarButtonStyle}" Visibility="{Binding ShowEmployees}">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/Images/employee-icon.png" Width="30" Margin="0,0,10,0"/>
+                        <TextBlock Text="Employees"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource SidebarButtonStyle}" Visibility="{Binding ShowCredentials}">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/Images/lock-icon.png" Width="30" Margin="0,0,10,0"/>
+                        <TextBlock Text="Credentials"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource SidebarButtonStyle}" Command="{Binding LogoutCommand}">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/CourierSystemWPF;component/Resources/Images/conwy-logo.png" Width="30" Margin="0,0,10,0"/>
+                        <TextBlock Text="Logout"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        <Image Grid.Column="1" Margin="125,29,125,221" Source="/Resources/Images/conwy-logo.png"/>
+        <Label HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1" Margin="0,225,0,0" FontFamily="Sitka Text" FontSize="36">Conwy Courier System</Label>
     </Grid>
 </UserControl>

@@ -29,6 +29,18 @@
                 <views:CredentialsView />
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type vm:CredentialsAddVM}">
+                <views:CredentialsAdd />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:NewClientVM}">
+                <views:NewClient />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:ContractAddVM}">
+                <views:ContractAdd />
+            </DataTemplate>
+
         </ResourceDictionary>
     </Application.Resources>
 

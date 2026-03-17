@@ -45,6 +45,7 @@ namespace CourierSystemWPF.Utilities
                 conn.Close();
                 return false;
             }
+
         }
 
         public static void DeleteCredentialWithId(int id)
@@ -59,6 +60,7 @@ namespace CourierSystemWPF.Utilities
             cmd.Parameters.AddWithValue("@id", id);
 
             cmd.ExecuteNonQuery();
+            conn.Close();
         }
 
         public static void UpdateCredentialWithId(int id, string username, string password, int accessLevel, int employeeId)
@@ -76,6 +78,24 @@ namespace CourierSystemWPF.Utilities
             cmd.Parameters.AddWithValue("@employeeId", employeeId);
 
             cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        public static void AddCredentials(string username, string password, int accessLevel, int employeeId)
+        {
+            SqlConnection conn = CreateConnection();
+            conn.Open();
+
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "INSERT INTO Credentials VALUES (@username, @password, @accessLevel, @employeeId);";
+            cmd.Parameters.AddWithValue("@username", username);
+            cmd.Parameters.AddWithValue("@password", password);
+            cmd.Parameters.AddWithValue("@accessLevel", accessLevel);
+            cmd.Parameters.AddWithValue("@employeeId", employeeId);
+
+            cmd.ExecuteNonQuery();
+            conn.Close();
         }
 
         public static ObservableCollection<Login> GetAllCredentials()
@@ -100,7 +120,27 @@ namespace CourierSystemWPF.Utilities
                 newLogin.employeeId = (int) rdr[4];
                 credentialData.Add(newLogin);
             }
+
+            conn.Close();
             return credentialData;
+        }
+
+        public static void AddNewClient(string firstName, string lastName, string email, string tel, string businessName)
+        {
+            SqlConnection conn = CreateConnection();
+            conn.Open();
+
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "INSERT INTO Clients VALUES (@firstName, @lastName, @email, @tel, @businessName);";
+            cmd.Parameters.AddWithValue("@firstName", firstName);
+            cmd.Parameters.AddWithValue("@lastName", lastName);
+            cmd.Parameters.AddWithValue("@email", email);
+            cmd.Parameters.AddWithValue("@tel", tel);
+            cmd.Parameters.AddWithValue("@businessName", businessName);
+
+            cmd.ExecuteNonQuery();
+            conn.Close();
         }
     }
 }

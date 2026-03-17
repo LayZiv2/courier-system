@@ -24,10 +24,6 @@ namespace CourierSystemWPF.ViewModels
 
         private void CreateCommands()
         {
-            ViewBreaksCommand = new RelayCommand(obj =>
-            {
-                CurrentSubView = new CredentialsViewVM();
-            });
 
             HomeCommand = new RelayCommand(obj =>
             {
@@ -37,7 +33,6 @@ namespace CourierSystemWPF.ViewModels
 
         public EmployeesVM()
         {
-            CurrentSubView = new CredentialsViewVM()!;
             CreateCommands();
         }
     }

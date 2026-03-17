@@ -61,6 +61,12 @@ namespace CourierSystemWPF.ViewModels
             {
                 Session.Navigation.CurrentView = new ReportsVM();
             });
+
+
+            EmployeesCommand = new RelayCommand(obj =>
+            {
+                Session.Navigation.CurrentView = new EmployeesVM();
+            });
         }
 
         private void ConfigureButtonVisibility()

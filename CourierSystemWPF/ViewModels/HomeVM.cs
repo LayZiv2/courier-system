@@ -18,17 +18,22 @@ namespace CourierSystemWPF.ViewModels
         public ICommand LogoutCommand { get; set; } = null!;
         public ICommand CredentialsCommand { get; set; } = null!;
         public ICommand ContractsCommand { get; set; } = null!;
+        public ICommand DeliveriesCommand { get; set; } = null!;
+        public ICommand EmployeesCommand { get; set; } = null!;
+        public ICommand ReportsCommand { get; set; } = null!;
 
         // Button visibility
         private Visibility _showDeliveries = Visibility.Collapsed;
         private Visibility _showContracts = Visibility.Collapsed;
         private Visibility _showEmployees = Visibility.Collapsed;
         private Visibility _showCredentials = Visibility.Collapsed;
+        private Visibility _showReports = Visibility.Collapsed;
 
         public Visibility ShowDeliveries { get { return _showDeliveries; } set { _showDeliveries = value; OnPropertyChanged(); } }
         public Visibility ShowContracts { get { return _showContracts; } set { _showContracts = value; OnPropertyChanged(); } }
         public Visibility ShowEmployees { get { return _showEmployees; } set { _showEmployees = value; OnPropertyChanged(); } }
         public Visibility ShowCredentials { get { return _showCredentials; } set { _showCredentials = value; OnPropertyChanged(); } }
+        public Visibility ShowReports { get { return _showReports; } set { _showReports = value; OnPropertyChanged(); } }
 
         private void CreateCommands()
         {
@@ -46,6 +51,16 @@ namespace CourierSystemWPF.ViewModels
             {
                 Session.Navigation.CurrentView = new ContractsVM();
             });
+
+            DeliveriesCommand = new RelayCommand(obj =>
+            {
+                Session.Navigation.CurrentView = new DeliveriesVM();
+            });
+
+            ReportsCommand = new RelayCommand(obj =>
+            {
+                Session.Navigation.CurrentView = new ReportsVM();
+            });
         }
 
         private void ConfigureButtonVisibility()
@@ -58,24 +73,28 @@ namespace CourierSystemWPF.ViewModels
                     ShowContracts = Visibility.Collapsed;
                     ShowEmployees = Visibility.Collapsed;
                     ShowCredentials = Visibility.Collapsed;
+                    ShowReports = Visibility.Collapsed;
                     break;
                 case 1: // Logistics Coordinator
                     ShowDeliveries = Visibility.Visible;
                     ShowContracts = Visibility.Visible;
                     ShowEmployees = Visibility.Collapsed;
                     ShowCredentials = Visibility.Collapsed;
+                    ShowReports = Visibility.Visible;
                     break;
                 case 2: // Admin
                     ShowDeliveries = Visibility.Visible;
                     ShowContracts = Visibility.Visible;
                     ShowEmployees = Visibility.Visible;
                     ShowCredentials = Visibility.Visible;
+                    ShowReports = Visibility.Visible;
                     break;
                 case 10: // Owner
                     ShowDeliveries = Visibility.Visible;
                     ShowContracts = Visibility.Visible;
                     ShowEmployees = Visibility.Visible;
                     ShowCredentials = Visibility.Visible;
+                    ShowReports = Visibility.Visible;
                     break;
             }
 

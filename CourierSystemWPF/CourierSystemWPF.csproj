@@ -15,6 +15,7 @@
     <None Remove="Resources\Images\employee-icon.png" />
     <None Remove="Resources\Images\lock-icon.png" />
     <None Remove="Resources\Images\logout-icon.png" />
+    <None Remove="Resources\Images\report-icon.png" />
     <None Remove="Resources\Images\user-icon.png" />
   </ItemGroup>
 
@@ -42,6 +43,9 @@
     </Resource>
     <Resource Include="Resources\Images\logout-icon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\report-icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Images\user-icon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

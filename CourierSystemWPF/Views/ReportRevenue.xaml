@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="CourierSystemWPF.Views.ReportRevenue"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Labels -->
+        <StackPanel Margin="20">
+
+            <Label Content="Revenue Report"
+                   FontSize="24"
+                   FontFamily="Cascadia Mono SemiBold"
+                   Foreground="#FF0C1338"/>
+
+            <StackPanel Margin="0,20,0,0">
+                <Label Content="Contract Fee:"/>
+                <TextBlock Text="{Binding ContractFee}" Margin="0,0,0,10"/>
+
+                <Label Content="Contracted Deliveries:"/>
+                <TextBlock Text="{Binding ContractedDeliveries}" Margin="0,0,0,10"/>
+
+                <Label Content="Non-Contracted Deliveries:"/>
+                <TextBlock Text="{Binding NonContractedDeliveries}" Margin="0,0,0,10"/>
+
+                <Label Content="Total Profit:"/>
+                <TextBlock Text="{Binding TotalProfit}" FontWeight="Bold"/>
+            </StackPanel>
+
+        </StackPanel>
+
+        <!-- Controls -->
+        <StackPanel Grid.Column="1" Margin="20">
+
+            <Label>
+                Select Month:
+            </Label>
+
+            <xctk:DateTimePicker Value="{Binding SelectedDate}" Margin="0,0,0,10"/>
+
+            <Button Content="Calculate" Command="{Binding CalculateCommand}" Margin="0,10,0,0"/>
+
+        </StackPanel>
+
+    </Grid>
+</UserControl>

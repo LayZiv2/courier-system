@@ -70,7 +70,7 @@
                 ItemsSource="{Binding Clients}" 
                 SelectedItem="{Binding ClientID}"
                 DisplayMemberPath="id"
-            />
+                />
             <TextBox 
                 AcceptsReturn="True"
                 TextWrapping="Wrap"

@@ -23,10 +23,10 @@ namespace CourierSystemWPF.ViewModels
 
         public ObservableCollection<Client> Clients { get; set; } = new ObservableCollection<Client>();
 
-        public DateTime SelectedStartDateTime { get => _selectedStartDateTime; set { _selectedStartDateTime = value; OnPropertyChanged(); } }
-        public DateTime SelectedEndDateTime { get => _selectedEndDateTime; set { _selectedEndDateTime = value; OnPropertyChanged(); } }
-        public string? Notes { get => _notes; set { _notes = value; OnPropertyChanged(); } }
-        public Client? SelectedClient { get => _selectedClient; set { _selectedClient = value; OnPropertyChanged(); } }
+        public DateTime SelectedStartDateTime { get { return _selectedStartDateTime; } set { _selectedStartDateTime = value; OnPropertyChanged(); } }
+        public DateTime SelectedEndDateTime { get { return _selectedEndDateTime; } set { _selectedEndDateTime = value; OnPropertyChanged(); } }
+        public string? Notes { get { return _notes; } set { _notes = value; OnPropertyChanged(); } }
+        public Client? SelectedClient { get { return _selectedClient;  } set { _selectedClient = value; OnPropertyChanged(); } }
 
         // Commands
         public ICommand AddCommand { get; set; } = null!;

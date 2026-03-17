@@ -1,0 +1,70 @@
+﻿<UserControl x:Class="CourierSystemWPF.Views.DeliveriesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CourierSystemWPF.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1.2*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Deliveries DataGrid -->
+        <DataGrid ItemsSource="{Binding Deliveries}" SelectedItem="{Binding SelectedDelivery}" 
+                  AutoGenerateColumns="False" IsReadOnly="True" EnableRowVirtualization="False" Grid.Column="0">
+            <DataGrid.Resources>
+                <Style x:Key="WrapTextBlockStyle" TargetType="TextBlock">
+                    <Setter Property="TextWrapping" Value="Wrap"/>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Height" Value="Auto"/>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding id}" ElementStyle="{StaticResource WrapTextBlockStyle}" Width="*"/>
+                <DataGridTextColumn Header="Address" Binding="{Binding destinationAddress}" ElementStyle="{StaticResource WrapTextBlockStyle}" Width="*"/>
+                <DataGridTextColumn Header="Delivery Date" Binding="{Binding deliveryDateTime}" ElementStyle="{StaticResource WrapTextBlockStyle}" Width="*"/>
+                <DataGridTextColumn Header="Contract ID" Binding="{Binding contractId}" ElementStyle="{StaticResource WrapTextBlockStyle}" Width="*"/>
+                <DataGridTextColumn Header="Courier ID" Binding="{Binding courierId}" ElementStyle="{StaticResource WrapTextBlockStyle}" Width="*"/>
+                <DataGridTextColumn Header="Accepted" Binding="{Binding accepted}" ElementStyle="{StaticResource WrapTextBlockStyle}" Width="*"/>
+                <DataGridTextColumn Header="Delivered" Binding="{Binding delivered}" ElementStyle="{StaticResource WrapTextBlockStyle}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Sidebar -->
+        <StackPanel Grid.Column="1" Background="#FF90C0EA">
+            <Label Content="Delivery Editor" FontSize="24" FontFamily="Cascadia Mono SemiBold" HorizontalAlignment="Center" Margin="0,10"/>
+
+            <!-- Textboxes -->
+            <StackPanel Orientation="Vertical" Margin="10">
+                <Label Content="ID:" Foreground="White"/>
+                <TextBox Text="{Binding DeliveryIDInput}" IsReadOnly="True" Margin="0,5" Padding="2"/>
+
+                <Label Content="Address:" Foreground="White"/>
+                <TextBox Text="{Binding DestinationAddress}" Margin="0,5" Padding="2"/>
+
+                <Label Content="Delivery Date:" Foreground="White"/>
+                <xctk:DateTimePicker Value="{Binding DeliveryDateTime}" Margin="0,5" Padding="2"/>
+
+                <Label Content="Contract ID: (Leave zero for no contract)" Foreground="White"/>
+                <TextBox Text="{Binding ContractIdInput}" Margin="0,5" Padding="2"/>
+
+                <Label Content="Courier:" Foreground="White"/>
+                <ComboBox ItemsSource="{Binding Couriers}" SelectedValue="{Binding CourierId}" DisplayMemberPath="id" SelectedValuePath="id" Margin="0,5" Padding="2"/>
+            </StackPanel>
+
+            <!-- Buttons -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0">
+                <Button Content="Update" Command="{Binding UpdateCommand}" Margin="15"/>
+                <Button Content="Delete" Command="{Binding DeleteCommand}" Margin="15"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

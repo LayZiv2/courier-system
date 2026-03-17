@@ -16,6 +16,6 @@ namespace CourierSystemWPF.Models
         public string username { get; set; }
         public string password { get; set; }
         public int accessLevel { get; set; }
-        public int? employeeId { get; set; }
+        public int employeeId { get; set; }
     }
 }

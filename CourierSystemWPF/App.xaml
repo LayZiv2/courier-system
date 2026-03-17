@@ -1,10 +1,10 @@
 ﻿<Application x:Class="CourierSystemWPF.App"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:CourierSystemWPF"
-             xmlns:vm="clr-namespace:CourierSystemWPF.ViewModels"
-             xmlns:views="clr-namespace:CourierSystemWPF.Views"
-             StartupUri="MainWindow.xaml">
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:CourierSystemWPF"
+        xmlns:vm="clr-namespace:CourierSystemWPF.ViewModels"
+        xmlns:views="clr-namespace:CourierSystemWPF.Views"
+        StartupUri="MainWindow.xaml">
 
     <Application.Resources>
         <ResourceDictionary>
@@ -47,6 +47,46 @@
 
             <DataTemplate DataType="{x:Type vm:ContractsViewVM}">
                 <views:ContractsView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:ClientViewVM}">
+                <views:ClientView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:DeliveriesVM}">
+                <views:Deliveries/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:DeliveriesAddVM}">
+                <views:DeliveriesAdd/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:DeliveriesPersonalVM}">
+                <views:DeliveriesPersonal/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:DeliveriesViewVM}">
+                <views:DeliveriesView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:ReportsVM}">
+                <views:Reports/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:ReportDailyVM}">
+                <views:ReportDaily/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:ReportMonthlyVM}">
+                <views:ReportMonthly/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:ReportRevenueVM}">
+                <views:ReportRevenue/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:EmployeesVM}">
+                <views:Employees/>
             </DataTemplate>
 
         </ResourceDictionary>

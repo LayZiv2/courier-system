@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="CourierSystemWPF.Views.ReportMonthly"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CourierSystemWPF.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="64*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="18*"/>
+            <ColumnDefinition Width="7*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="View Monthly Assignments" Grid.Column="0" Foreground="#FF0C1338" VerticalAlignment="Center" FontSize="24" FontFamily="Cascadia Mono SemiBold" Height="38"/>
+
+        <DataGrid ItemsSource="{Binding Deliveries}" AutoGenerateColumns="False" IsReadOnly="True" EnableRowVirtualization="False" Grid.Row="1">
+            <DataGrid.Resources>
+                <Style x:Key="WrapTextBlockStyle" TargetType="TextBlock">
+                    <Setter Property="TextWrapping" Value="Wrap"/>
+                </Style>
+            </DataGrid.Resources>
+
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Height" Value="Auto"/>
+                </Style>
+            </DataGrid.RowStyle>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding id}" Width="*"/>
+                <DataGridTextColumn Header="Address" Binding="{Binding destinationAddress}" Width="*"/>
+                <DataGridTextColumn Header="Date" Binding="{Binding deliveryDateTime}" Width="*"/>
+                <DataGridTextColumn Header="Contract ID" Binding="{Binding contractId}" Width="*"/>
+                <DataGridTextColumn Header="Accepted" Binding="{Binding accepted}" Width="*"/>
+                <DataGridTextColumn Header="Delivered" Binding="{Binding delivered}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <Label Margin="20,0,20,0">
+                Select Month:
+            </Label>
+            <xctk:DateTimePicker Margin="20,0,20,0" Padding="5" Value="{Binding SelectedDate}"/>
+
+            <Button Content="Search" Margin="20" Command="{Binding SearchCommand}"/>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

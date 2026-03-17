@@ -21,6 +21,7 @@ namespace CourierSystemWPF.ViewModels
         public ICommand HomeCommand { get; set; } = null!;
         public ICommand AddContractCommand { get; set; } = null!;
         public ICommand ViewContractCommand { get; set; } = null!;
+        public ICommand ViewClientsCommand { get; set; } = null!;
 
         private void CreateCommands()
         {
@@ -38,6 +39,11 @@ namespace CourierSystemWPF.ViewModels
             ViewContractCommand = new RelayCommand(obj =>
             {
                 CurrentSubView = new ContractsViewVM();
+            });
+
+            ViewClientsCommand = new RelayCommand(obj =>
+            {
+                CurrentSubView = new ClientViewVM();
             });
         }
 

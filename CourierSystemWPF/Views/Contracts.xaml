@@ -43,6 +43,10 @@
                 <Button Style="{StaticResource SidebarButtonStyle}" Command="{Binding AddContractCommand}">
                     Add Contract
                 </Button>
+
+                <Button Style="{StaticResource SidebarButtonStyle}" Command="{Binding HomeCommand}">
+                    Home
+                </Button>
             </StackPanel>
         </Grid>
 

@@ -17,6 +17,7 @@ namespace CourierSystemWPF.ViewModels
         // Button commands
         public ICommand LogoutCommand { get; set; } = null!;
         public ICommand CredentialsCommand { get; set; } = null!;
+        public ICommand ContractsCommand { get; set; } = null!;
 
         // Button visibility
         private Visibility _showDeliveries = Visibility.Collapsed;
@@ -39,6 +40,11 @@ namespace CourierSystemWPF.ViewModels
 
             CredentialsCommand = new RelayCommand(obj => {
                 Session.Navigation.CurrentView = new CredentialsVM();
+            });
+
+            ContractsCommand = new RelayCommand(obj =>
+            {
+                Session.Navigation.CurrentView = new ContractsVM();
             });
         }
 

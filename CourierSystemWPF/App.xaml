@@ -37,6 +37,10 @@
                 <views:NewClient />
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type vm:ContractsVM}">
+                <views:Contracts />
+            </DataTemplate>
+
             <DataTemplate DataType="{x:Type vm:ContractAddVM}">
                 <views:ContractAdd />
             </DataTemplate>

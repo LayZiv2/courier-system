@@ -40,21 +40,21 @@
 
             <!-- Button List -->
             <StackPanel Grid.Row="1">
-                <Button Style="{StaticResource SidebarButtonStyle}" Visibility="{Binding ShowDeliveries}">
+                <Button Style="{StaticResource SidebarButtonStyle}" Visibility="{Binding ShowDeliveries}" Command="{Binding DeliveriesCommand}">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Resources/Images/box-icon.png" Width="30" Margin="0,0,10,0"/>
                         <TextBlock Text="Deliveries"/>
                     </StackPanel>
                 </Button>
 
-                <Button Style="{StaticResource SidebarButtonStyle}" Visibility="{Binding ShowContracts}">
+                <Button Style="{StaticResource SidebarButtonStyle}" Visibility="{Binding ShowContracts}" Command="{Binding ContractsCommand}">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Resources/Images/clipboard-icon.png" Width="30" Margin="0,0,10,0"/>
                         <TextBlock Text="Contracts"/>
                     </StackPanel>
                 </Button>
 
-                <Button Style="{StaticResource SidebarButtonStyle}" Visibility="{Binding ShowEmployees}">
+                <Button Style="{StaticResource SidebarButtonStyle}" Visibility="{Binding ShowEmployees}" Command="{Binding EmployeesCommand}">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Resources/Images/employee-icon.png" Width="30" Margin="0,0,10,0"/>
                         <TextBlock Text="Employees"/>

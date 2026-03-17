@@ -6,16 +6,16 @@
         xmlns:local="clr-namespace:CourierSystemWPF.Views"
         xmlns:vm="clr-namespace:CourierSystemWPF.ViewModels"
         mc:Ignorable="d"
-        Title="NewClient" Height="398" Width="341" ResizeMode="NoResize">
+        Title="NewClient" Height="437" Width="375" ResizeMode="NoResize">
     <Window.DataContext>
         <vm:NewClientVM/>
     </Window.DataContext>
-    
+
     <Grid Background="#FF90C0EA">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200*"/>
-            <ColumnDefinition Width="300*"/>
-            <ColumnDefinition Width="200*"/>
+            <ColumnDefinition Width="107*"/>
+            <ColumnDefinition Width="219*"/>
+            <ColumnDefinition Width="49*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="76*"/>
@@ -24,9 +24,9 @@
             <RowDefinition Height="6*"/>
         </Grid.RowDefinitions>
 
-        <Label Content="Add new client" Background="#00000000" Foreground="#FF1B3D69" FontSize="24" FontFamily="Cascadia Mono SemiBold" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Height="38" Width="207" Grid.ColumnSpan="3"/>
+        <Label Content="Add new client" Background="#00000000" Foreground="#FF1B3D69" FontSize="24" FontFamily="Cascadia Mono SemiBold" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="0" Height="38" Width="207" Grid.ColumnSpan="2" Margin="84,0,0,0"/>
 
-        <StackPanel Grid.ColumnSpan="3" Margin="97,76,97,0" Grid.RowSpan="2">
+        <StackPanel Grid.ColumnSpan="2" Margin="97,76,12,62" Grid.RowSpan="3">
             <TextBox Text="{Binding FirstNameInput}" Margin="20,20,20,0" Padding="5"/>
             <TextBox Text="{Binding LastNameInput}" Margin="20,20,20,0" Padding="5"/>
             <TextBox Text="{Binding EmailInput}" Margin="20,20,20,0" Padding="5"/>
@@ -34,7 +34,7 @@
             <TextBox Text="{Binding BusinessInput}" Margin="20,20,20,0" Padding="5"/>
         </StackPanel>
 
-        <StackPanel Grid.Column="0" Margin="0,76,0,0" Grid.RowSpan="2">
+        <StackPanel Grid.Column="0" Margin="0,76,0,62" Grid.RowSpan="3">
             <Label Content="First Name:" Margin="0,19,0,0" Padding="5" Background="#00000000" Foreground="#FF3C3A3A" FontSize="14" HorizontalAlignment="Right"/>
             <Label Content="Last Name:" Margin="0,19,0,0" Padding="5" Background="#00000000" Foreground="#FF3C3A3A" FontSize="14" HorizontalAlignment="Right"/>
             <Label Content="Email:" Margin="0,19,0,0" Padding="5" Background="#00000000" Foreground="#FF3C3A3A" FontSize="14" HorizontalAlignment="Right"/>

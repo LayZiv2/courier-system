@@ -142,5 +142,50 @@ namespace CourierSystemWPF.Utilities
             cmd.ExecuteNonQuery();
             conn.Close();
         }
+
+        public static ObservableCollection<Client> GetAllClients()
+        {
+            ObservableCollection<Client> clientData = new ObservableCollection<Client>();
+
+            SqlConnection conn = CreateConnection();
+            conn.Open();
+
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "SELECT * FROM Clients";
+
+            SqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                Client newClient = new Client();
+                newClient.id = (int)rdr[0];
+                newClient.firstName = (string)rdr[1];
+                newClient.lastName = (string)rdr[2];
+                newClient.email = (string)rdr[3];
+                newClient.phoneNumber = (string)rdr[4];
+                newClient.businessName = (string)rdr[5];
+                clientData.Add(newClient);
+            }
+
+            conn.Close();
+            return clientData;
+        }
+
+        public static void AddNewContract(DateTime startDate, DateTime endDate, int clientId, string notes)
+        {
+            SqlConnection conn = CreateConnection();
+            conn.Open();
+
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "INSERT INTO Contracts VALUES (@startDate, @endDate, @clientId, @notes);";
+            cmd.Parameters.AddWithValue("@startDate", startDate);
+            cmd.Parameters.AddWithValue("@endDate", endDate);
+            cmd.Parameters.AddWithValue("@clientId", clientId);
+            cmd.Parameters.AddWithValue("@notes", notes);
+
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
     }
 }

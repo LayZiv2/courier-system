@@ -187,5 +187,65 @@ namespace CourierSystemWPF.Utilities
             cmd.ExecuteNonQuery();
             conn.Close();
         }
+
+        public static ObservableCollection<Contracts> GetAllContracts()
+        {
+            ObservableCollection<Contracts> contractData = new ObservableCollection<Contracts>();
+
+            SqlConnection conn = CreateConnection();
+            conn.Open();
+
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "SELECT * FROM Contracts";
+
+            SqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                Contracts newContract = new Contracts();
+                newContract.id = (int)rdr[0];
+                newContract.startDate = (DateTime)rdr[1];
+                newContract.endDate = (DateTime)rdr[2];
+                newContract.clientId = (int)rdr[3];
+                newContract.notes = (string)rdr[4];
+                contractData.Add(newContract);
+            }
+
+            conn.Close();
+            return contractData;
+        }
+
+        public static void DeleteContractWithId(int id)
+        {
+
+            SqlConnection conn = CreateConnection();
+            conn.Open();
+
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "DELETE FROM Contracts WHERE ContractID = @id;";
+            cmd.Parameters.AddWithValue("@id", id);
+
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        public static void UpdateContractWithId(int id, DateTime startDate, DateTime endDate, int clientId, string notes)
+        {
+            SqlConnection conn = CreateConnection();
+            conn.Open();
+
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "UPDATE Contracts SET ContractStartDate = @startDate, ContractEndDate = @endDate, ClientID = @clientId, Notes = @notes WHERE ContractID = @id;";
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@startDate", startDate);
+            cmd.Parameters.AddWithValue("@endDate", endDate);
+            cmd.Parameters.AddWithValue("@clientId", clientId);
+            cmd.Parameters.AddWithValue("@notes", notes);
+
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
     }
 }

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:CourierSystemWPF"
         xmlns:vm="clr-namespace:CourierSystemWPF.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="800">
+        Title="MainWindow" Height="526" Width="941">
 
     <Window.DataContext>
         <vm:NavigationVM />

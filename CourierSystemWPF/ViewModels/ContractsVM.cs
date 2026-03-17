@@ -34,6 +34,11 @@ namespace CourierSystemWPF.ViewModels
             {
                 CurrentSubView = new ContractAddVM();
             });
+
+            ViewContractCommand = new RelayCommand(obj =>
+            {
+                CurrentSubView = new ContractsViewVM();
+            });
         }
 
         public ContractsVM() { 

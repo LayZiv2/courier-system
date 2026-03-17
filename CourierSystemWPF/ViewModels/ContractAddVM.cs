@@ -81,7 +81,7 @@ namespace CourierSystemWPF.ViewModels
             UpdateClients();
 
             SelectedStartDateTime = DateTime.Now;
-            SelectedEndDateTime = DateTime.Now.AddHours(1);
+            SelectedEndDateTime = DateTime.Now.AddMonths(1);
         }
     }
 }

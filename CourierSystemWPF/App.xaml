@@ -25,6 +25,10 @@
                 <views:Credentials />
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type vm:CredentialsViewVM}">
+                <views:CredentialsView />
+            </DataTemplate>
+
         </ResourceDictionary>
     </Application.Resources>
 

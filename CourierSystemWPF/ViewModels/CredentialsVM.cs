@@ -9,8 +9,16 @@ namespace CourierSystemWPF.ViewModels
 {
     public class CredentialsVM : ViewModelBase
     {
-        public CredentialsVM() {
+        private object _currentSubView = null!;
 
+        public object CurrentSubView
+        {
+            get { return _currentSubView; }
+            set { _currentSubView = value; OnPropertyChanged(); }
+        }
+
+        public CredentialsVM() {
+            CurrentSubView = new CredentialsViewVM()!;
         }
     }
 }
